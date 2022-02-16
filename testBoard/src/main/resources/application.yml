@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/board?serverTimezone=Asia/Seoul
+    username: root
+    password: admin
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  thymeleaf:
+    prefix: classpath:/static/
+    suffix: .html
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      format_sql: true
+      # 어플리케이션의 시작 시점에 Domain.폴더의 Entity랑 DB의 스키마를 비교하여 다른점이 있다면 DB의 스키마를 업데이트한다.
+      #  운영에서는 none, validate를 사용해야한다.
+      ddl_auto: update
+      # ddl_auto: none
